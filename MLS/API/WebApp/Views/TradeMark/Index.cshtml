@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Administrator";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Dashboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Tất cả nhãn hàng
+            </div>
+            <a asp-action="Create" asp-controller="TradeMark" type="button" class="btn btn-outline-success"> Thêm</a>
+            <div class="container-fluid px-4">
+              
+           </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Options</th>
+                        </tr>
+
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Tên</th> 
+                            <th>Options</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in ViewBag.data)
+                        {
+                            <tr>
+                                <td>@item.Name</td>                            
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-outline-success"> Sửa</a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-outline-danger"> Xóa</a>
+                                </td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+

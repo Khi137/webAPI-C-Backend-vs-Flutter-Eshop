@@ -1,0 +1,29 @@
+﻿@model WebApp.Models.Product
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "_Layout";
+}
+
+
+
+<h4>Xóa sản phẩm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Delete">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+          
+            <div class="form-group">
+                
+                <p> Bạn có muốn ngưng bán sản phẩm này không?</p>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Xóa" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Administrator";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Dashboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Tất cả sản phẩm
+            </div>
+         
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>SKU</th>
+                            <th>Tên</th>
+                            <th>Giá</th>
+                            <th>Mô tả</th>
+                            <th>Tồn kho </th>
+                            <th>Ảnh</th>
+
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>SKU</th>
+                            <th>Tên</th>
+                            <th>Giá</th>
+                            <th>Mô tả</th>
+                            <th>Tồn kho </th>
+                            <th>Ảnh</th>
+                            <th>Trạng thái</th>
+
+                            <th>Options</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in ViewBag.data)
+                        {
+                            <tr>
+                                <td>@item.SKU</td>
+                                <td>@item.Name</td>
+                                <td>@item.Price.ToString("n0")</td>
+                                <td>@item.Description</td>
+                                <td>@item.Stock</td>
+                                <td><img src="data:image;base64,@System.Convert.ToBase64String(@item.ImageFile)" width="150" height="150" /></td>
+
+                                <td style="color: forestgreen">@item.Status</td>
+
+
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+

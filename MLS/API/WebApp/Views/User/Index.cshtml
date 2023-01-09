@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Dashboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Tất cả người dùng
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Họ Tên</th>
+                            <th>Email</th>
+                            <th>UserName</th>
+                            <th>Avatar</th>
+                           @* <th>Roles</th>*@
+                            <th>Trạng thái</th>
+                            <th>Options</th>
+                        </tr>
+
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Họ Tên</th>          
+                            <th>UseName</th>
+                            <th>Email</th>
+                            <th>Avatar</th>
+                           @* <th>Roles</th>*@
+                            <th>Trạng thái</th>
+                            <th>Options</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in ViewBag.data)
+                        {
+                            <tr>
+                                <td>@item.FullName</td>
+                                <td>@item.UserName</td>
+                                <td>@item.Email</td>                      
+                                <td>@item.Avatar</td>
+                               @* <td>@item.Role</td>*@
+                                @if (@item.Status == 1)
+                                {
+                                    <td style="color:forestgreen">Đang hoạt động</td>
+                                }
+                                
+                                <td>
+
+                                    <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-outline-success"> Quản lý tài khoản</a>                                  
+
+                                </td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+

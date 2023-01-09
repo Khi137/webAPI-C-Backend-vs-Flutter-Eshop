@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "InvoicesDetail";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Thống kê hóa đơn</h1>
+       
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Thống kê hóa đơn
+            </div>         
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Mã hóa đơn</th>
+                            <th>Khách hàng</th>
+                            <th>Địa chỉ</th>
+                            <th>Số điện thoại</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                         
+                           
+
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Mã hóa đơn</th>
+                            <th>Khách hàng</th>
+                            <th>Địa chỉ</th>
+                            <th>Số điện thoại</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+
+
+                            <th>Options</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @{
+                            decimal doanhthu = 0M;
+                        }
+                        @foreach (var item in ViewBag.data)
+                        {
+                           
+                            doanhthu += @item.Total;
+                            <tr>
+                                <td>@item.Code</td>
+                                <td>@item.User.UserName</td>
+                                <td>@item.ShippingAddress</td>
+                                <td>@item.ShippingPhone</td>
+                                <td>@item.Total.ToString("n0") VND</td>
+                                
+                                @if (@item.Status == 1)
+                               {
+                                    <td style="color:forestgreen">Đang giao hàng</td>
+                               }else
+                               {
+                                     <td style="color:yellow">Đã giao hàng</td>
+                               }
+                                    <td>
+                                       
+                                    <!-- Button trigger modal -->
+                                    <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Xác nhận
+                                    </a>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Xác nhận</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Xác nhận đơn hàng của: @item.User.UserName
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy đơn hàng</button>
+                                                    <a asp-action="Edit" asp-route-id="@item.Id" type="submit" class="btn btn-warning">Xác nhận đơn hàng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </td>                             
+                            </tr>
+                        }
+                        <h1 class="breadcrumb-item active"> Tổng doanh thu bán hàng: @doanhthu.ToString("n0") VND</h1>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

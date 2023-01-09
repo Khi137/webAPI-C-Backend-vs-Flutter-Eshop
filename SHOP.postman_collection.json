@@ -1,0 +1,578 @@
+{
+	"info": {
+		"_postman_id": "85dfe352-2a90-45fe-badc-df948f97784c",
+		"name": "SHOP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24578043"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "AddProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Cà Phê Hạt Trung Nguyên 500g\",\r\n   \"SKU\": \"256089463XAI\",\r\n   \"Description\":\"Ngon zl\",\r\n   \"Price\":10000,\r\n   \"Stock\":300,\r\n   \"ProductTypeId\":\"9fb5191b-681b-4cc5-3924-08dacd2f5389\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFkbWluIiwianRpIjoiOWRiYWY1ZTItNjI3MC00MTY5LWE5MjAtOWQ2NjE0NDllZTZmIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2Njk0Njc1NzMsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyJ9.Ae3-jC78qlJiatBoC5uj3uE0aGLL4y0bv_z07iVaoL8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Cà Phê Hạt Trung Nguyên 200g\",\r\n   \"SKU\": \"DSNA20u8DMS\",\r\n   \"Description\":\"Hơi ngon\",\r\n   \"Price\":10000,\r\n   \"Stock\":300,\r\n   \"image\":\"banh-mouse-chanh-day.jpg\",\r\n   \"ProductTypeId\":\"4395e97a-926c-4278-6d1b-08dacd3314a9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44302/api/Product/UpdateProduct?Id=fd197343-5ab6-4807-9915-08dacf85a4e0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"Product",
+								"UpdateProduct"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "fd197343-5ab6-4807-9915-08dacf85a4e0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFkbWluIiwianRpIjoiOWRiYWY1ZTItNjI3MC00MTY5LWE5MjAtOWQ2NjE0NDllZTZmIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2Njk0Njc1NzMsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyJ9.Ae3-jC78qlJiatBoC5uj3uE0aGLL4y0bv_z07iVaoL8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n   \"Status\":\"Deleted\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44302/api/Product/DeleteProduct?Id=fd197343-5ab6-4807-9915-08dacf85a4e0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"Product",
+								"DeleteProduct"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "fd197343-5ab6-4807-9915-08dacf85a4e0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"user1\",\r\n  \"email\": \"thanhcongdo05@gmail.com\",\r\n  \"password\": \"User@123\",\r\n  \"fullname\": \"Thành Công\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44302/api/Authenticate/register-customer",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"Authenticate",
+								"register-customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44302/api/Product/GetAllProductsIndex",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"Product",
+								"GetAllProductsIndex"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get AD PRoduct",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44302/api/User/GetAllUsers",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"User",
+								"GetAllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44302/api/Upload/GetImageProduct?name=cafe-hat-trung-%20nguyen.jpg",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"Upload",
+								"GetImageProduct"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "cafe-hat-trung-%20nguyen.jpg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all ROLES",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Register-admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin\",\r\n  \"email\": \"trantuananh1102015@gmail.com\",\r\n  \"password\": \"Admin@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44302/api/authenticate/register-admin",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"authenticate",
+								"register-admin"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "admin",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "Admin@123",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "trantuananh1102015@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "Quantity",
+									"value": "22",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Deleted Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFkbWluIiwianRpIjoiMmE3ZTRkMjQtOWY4Zi00NWFkLWJmNjAtNjVhMWUxNjhlZjY2IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2NzAwMTIzMjEsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyJ9.CE0h80yEKYNwWMZzzHjPGnd7NIHDZCVOSnTSaqSuycw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44302/api/Product/GetAllProductsRemove",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"Product",
+								"GetAllProductsRemove"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "GetAll InvoicesDetail",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "All Invoices",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Type",
+			"item": [
+				{
+					"name": "GetAllProductType",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFkbWluIiwianRpIjoiZmQ0OTBlYzYtY2JiNi00MzI3LTg1N2UtN2ExZGE5MmExMGNhIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2NjkyMDU1NjYsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyJ9.nwF8QBuYF0htbMShJVdWRRKi0l5odU7drQKhuhmb3Cg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44302/api/ProductType/GetAllProductTypes",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"ProductType",
+								"GetAllProductTypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddProductType",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFkbWluIiwianRpIjoiMTMzNDgyNWQtMDk5NS00MTNhLWE0OTUtZjU2NmY4ZmQ0NmQzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2NjkyMDIzOTAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyJ9.5trRrJ8yUge_fjTnz_bRkx0A8n97qoyoCHtQGPZPF-g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Cà Phê Hạt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44302/api/ProductType/AddProductType",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"ProductType",
+								"AddProductType"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "72",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trade Mark",
+			"item": [
+				{
+					"name": "GetAll Trademark",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44302//api/TradeMark/GetAllTradeMarks",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"",
+								"api",
+								"TradeMark",
+								"GetAllTradeMarks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddTradeMark",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFkbWluIiwianRpIjoiZmQ0OTBlYzYtY2JiNi00MzI3LTg1N2UtN2ExZGE5MmExMGNhIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE2NjkyMDU1NjYsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzAyLyJ9.nwF8QBuYF0htbMShJVdWRRKi0l5odU7drQKhuhmb3Cg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Trung Nguyên\",\r\n  \"productTypeId\":\"4395e97a-926c-4278-6d1b-08dacd3314a9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44302/api/TradeMark/AddTradeMark",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44302",
+							"path": [
+								"api",
+								"TradeMark",
+								"AddTradeMark"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetUserByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44302/api/User/GetUserByUsername?username=admin",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44302",
+					"path": [
+						"api",
+						"User",
+						"GetUserByUsername"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "admin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"Admin@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44302/api/Authenticate/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44302",
+					"path": [
+						"api",
+						"Authenticate",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
